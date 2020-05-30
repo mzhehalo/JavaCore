@@ -23,6 +23,7 @@ public class Main {
         for (Car arrCar : arrCars) {
             System.out.println(arrCar);
         }
+
         //Users
         User taras = new User(1,"Taras", "Leschyshyn", 30);
         User halyna = new User(2,"Halyna", "Leschyshyn", 29);
