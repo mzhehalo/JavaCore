@@ -1,5 +1,5 @@
 package lesson3;
 
-public interface WomansClothe {
+public interface WomansClothes {
     void toDressWoman();
 }

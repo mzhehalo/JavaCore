@@ -1,8 +1,15 @@
 package lesson3;
 
+import java.util.Arrays;
+
 public class Main {
     public static void main(String[] args) {
-
+        WorkShop workshop1 = new WorkShop();
+        workshop1.execute();
+        MansClothes[] arrM = workshop1.mansClothes();
+        System.out.println(Arrays.toString(arrM));
+        WomansClothes[] arrW = workshop1.womansClothes();
+        System.out.println(Arrays.toString(arrW));
     }
 }
 
