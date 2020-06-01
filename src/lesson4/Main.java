@@ -25,15 +25,17 @@ public class Main {
                 1000);
 
         Store store1 = new Store();
+//        store1.fillListProducts();
         store1.addProduct(toothpaste);
         store1.addProduct(television);
         store1.addProduct(rolex);
         store1.addProduct(lifeInsurance);
         store1.addProduct(furniture);
-        store1.result();
         store1.removeProduct("0");
         store1.multipleTwoByType(TypesOfProducts.ShoppingProducts);
-
+        store1.premiumProducts();
+        store1.sumByType(TypesOfProducts.ShoppingProducts);
+        store1.avgByType();
     }
 }
 
