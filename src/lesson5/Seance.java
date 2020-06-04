@@ -8,10 +8,21 @@ public class Seance implements Comparable<Seance> {
     public Seance(Movie movie, Time startTime) {
         this.movie = movie;
         this.startTime = startTime;
+        int hour = this.startTime.getHours() + this.movie.getDuration().getHours();
+        int minute = this.startTime.getMinutes() + this.movie.getDuration().getMinutes();
+        if (hour >= 24) {
+            hour = hour - 24;
+        }
+        if (minute >= 60) {
+            minute = minute - 60;
+        }
+
         this.endTime = new Time(
-                this.startTime.getMinutes() + this.movie.getDuration().getMinutes(),
-                this.startTime.getHours() + this.movie.getDuration().getHours()
+                hour,
+                minute
         );
+
+//        System.out.println(this.endTime + " end time");
     }
 
     public Movie getMovie() {

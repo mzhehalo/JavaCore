@@ -3,17 +3,15 @@ package lesson5;
 import java.util.Objects;
 
 public class Time {
-    private int minutes;
     private int hours;
+    private int minutes;
 
-    public Time(int minutes, int hours) {
+    public Time(int hours, int minutes) {
         if (minutes >= 0 && minutes <= 60 && hours >= 0 && hours <= 23) {
-            this.minutes = minutes;
             this.hours = hours;
+            this.minutes = minutes;
         } else {
-            this.minutes = minutes - 60;
-            this.hours = hours + 1;
-//            System.out.println("Minutes or Hours are less zero or more their values!");
+            System.out.println("Set Minutes or Hours are less zero or more their true values!");
         }
     }
 
@@ -25,7 +23,7 @@ public class Time {
         if (minutes >= 0 && minutes <= 60) {
             this.minutes = minutes;
         } {
-            System.out.println("Minutes are less zero or more its value!");
+            System.out.println("Set Minutes less zero or more its true value!");
         }
     }
 
@@ -37,7 +35,7 @@ public class Time {
         if (hours >= 0 && hours <= 23) {
             this.hours = hours;
         } {
-            System.out.println("Hours are less zero or more its value!");
+            System.out.println("Set Hours less zero or more its true value!");
         }
     }
 

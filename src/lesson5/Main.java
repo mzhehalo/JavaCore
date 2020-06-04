@@ -1,10 +1,32 @@
 package lesson5;
 
+import java.util.TreeMap;
+
 public class Main {
     public static void main(String[] args) {
-//        Cinema cinema1 = new Cinema(Days.Monday,
-//                new Schedule(new Seance("The one living boy in new york", 1)),10);
-        Cinema cinema1 = new Cinema()
+        Time time1 = new Time(23,20);
+        System.out.println(time1+"\n==================");
+
+        Movie movie1 = new Movie("The one living boy in new york", new Time(2,30));
+        Movie movie2 = new Movie("The hunt", new Time(1,40));
+        Movie movie3 = new Movie("The Call of the Wild", new Time(2,0));
+        System.out.println(movie1+"\n==================");
+        Seance seance1 = new Seance(movie1, new Time(20,1));
+        Seance seance2 = new Seance(movie2, new Time(9,0));
+        Seance seance3 = new Seance(movie3, new Time(17,0));
+        System.out.println("\n==================");
+
+        Schedule schedule1 = new Schedule();
+        schedule1.addSeance(seance1);
+        schedule1.addSeance(seance2);
+        schedule1.addSeance(seance3);
+        System.out.println(schedule1.toString());
+
+        TreeMap<Days,Schedule> scheduleTreeMap = new TreeMap<>();
+        scheduleTreeMap.put(Days.Sunday, schedule1);
+        Cinema cinema1 = new Cinema(scheduleTreeMap,
+                new Time(8,20), new Time(22,30));
+        System.out.println(cinema1);
     }
 }
 

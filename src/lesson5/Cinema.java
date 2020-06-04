@@ -13,17 +13,27 @@ public class Cinema {
         for (Map.Entry<Days, Schedule> entry : entrySet) {
             TreeSet<Seance> seances = entry.getValue().getSeances();
             for (Seance seance : seances) {
-                if (seance.getStartTime().getHours() > open.getHours() &&
-                        seance.getStartTime().getMinutes() > open.getMinutes()) {
-                    System.out.println("Ok");
+                if (seance.getStartTime().getHours() > open.getHours()) {
+                    System.out.println("Ok on open!: " + seance.getMovie().getTitle());
+                } else if (seance.getStartTime().getHours() == open.getHours()) {
+                    if (seance.getStartTime().getMinutes() >= open.getMinutes()) {
+                        System.out.println("Ok on open!: " + seance.getMovie().getTitle());
+                    } else {
+                        System.out.println("Error on open!: " + seance.getMovie().getTitle());
+                    }
                 } else {
-                    System.out.println("Error on open!");
+                    System.out.println("Error on open!: " + seance.getMovie().getTitle());
                 }
-                if (seance.getEndTime().getHours() < close.getHours() &&
-                        seance.getEndTime().getMinutes() < close.getMinutes()) {
-                    System.out.println("ok");
+                if (seance.getEndTime().getHours() < close.getHours()) {
+                    System.out.println("Ok on open!: " + seance.getMovie().getTitle());
+                } else if (seance.getEndTime().getHours() == close.getHours()) {
+                    if (seance.getEndTime().getMinutes() <= close.getMinutes()) {
+                        System.out.println("Ok on open!: " + seance.getMovie().getTitle());
+                    } else {
+                        System.out.println("Error on close!: " + seance.getMovie().getTitle());
+                    }
                 } else {
-                    System.out.println("error on close!");
+                    System.out.println("Error on close!: " + seance.getMovie().getTitle());
                 }
             }
         }
@@ -82,7 +92,7 @@ public class Cinema {
     public void addSeance(String day, Seance... seances) {
         Days[] values = Days.values();
         Days chosenDay = null;
-        for(Days value : values) {
+        for (Days value : values) {
             if (value.name().equals(day)) {
                 chosenDay = value;
             }
@@ -107,7 +117,7 @@ public class Cinema {
 //            seances.removeIf(seance -> seance.getMovie().equals(movie));
 
             while (seanceIterator.hasNext()) {
-                Seance seance =seanceIterator.next();
+                Seance seance = seanceIterator.next();
                 if (seance.getMovie().equals(movie)) {
                     seanceIterator.remove();
                 }
