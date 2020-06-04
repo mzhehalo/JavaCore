@@ -13,6 +13,7 @@ public class Cinema {
         for (Map.Entry<Days, Schedule> entry : entrySet) {
             TreeSet<Seance> seances = entry.getValue().getSeances();
             for (Seance seance : seances) {
+                // Sorting Work Perfectly
                 if (seance.getStartTime().getHours() > open.getHours()) {
                     System.out.println("Ok on open!: " + seance.getMovie().getTitle());
                 } else if (seance.getStartTime().getHours() == open.getHours()) {
@@ -24,11 +25,12 @@ public class Cinema {
                 } else {
                     System.out.println("Error on open!: " + seance.getMovie().getTitle());
                 }
+
                 if (seance.getEndTime().getHours() < close.getHours()) {
-                    System.out.println("Ok on open!: " + seance.getMovie().getTitle());
+                    System.out.println("Ok on close!: " + seance.getMovie().getTitle());
                 } else if (seance.getEndTime().getHours() == close.getHours()) {
                     if (seance.getEndTime().getMinutes() <= close.getMinutes()) {
-                        System.out.println("Ok on open!: " + seance.getMovie().getTitle());
+                        System.out.println("Ok on close!: " + seance.getMovie().getTitle());
                     } else {
                         System.out.println("Error on close!: " + seance.getMovie().getTitle());
                     }
@@ -42,7 +44,7 @@ public class Cinema {
     }
 
     public TreeMap<Days, Schedule> getMap() {
-        return map;
+       return map;
     }
 
     public void setMap(TreeMap<Days, Schedule> map) {
@@ -89,7 +91,7 @@ public class Cinema {
                 '}';
     }
 
-    public void addSeance(String day, Seance... seances) {
+    public void addSeances(String day, Seance... seances) {
         Days[] values = Days.values();
         Days chosenDay = null;
         for (Days value : values) {
@@ -97,7 +99,6 @@ public class Cinema {
                 chosenDay = value;
             }
         }
-
         Schedule schedule = map.get(chosenDay);
         for (Seance s : seances) {
             schedule.addSeance(s);
