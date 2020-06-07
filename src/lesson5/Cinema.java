@@ -44,7 +44,7 @@ public class Cinema {
     }
 
     public TreeMap<Days, Schedule> getMap() {
-       return map;
+        return map;
     }
 
     public void setMap(TreeMap<Days, Schedule> map) {
@@ -92,16 +92,21 @@ public class Cinema {
     }
 
     public void addSeances(String day, Seance... seances) {
-        Days[] values = Days.values();
-        Days chosenDay = null;
-        for (Days value : values) {
-            if (value.name().equals(day)) {
-                chosenDay = value;
+
+        try {
+            Days[] values = Days.values();
+            Days chosenDay = null;
+            for (Days value : values) {
+                if (value.name().equals(day)) {
+                    chosenDay = value;
+                }
             }
-        }
-        Schedule schedule = map.get(chosenDay);
-        for (Seance s : seances) {
-            schedule.addSeance(s);
+            Schedule schedule = map.get(chosenDay);
+            for (Seance s : seances) {
+                schedule.addSeance(s);
+            }
+        } catch (Exception e) {
+            System.out.println("Exception: Invalid Day. Choose another one!");
         }
     }
 
