@@ -94,13 +94,7 @@ public class Cinema {
     public void addSeances(String day, Seance... seances) {
 
         try {
-            Days[] values = Days.values();
-            Days chosenDay = null;
-            for (Days value : values) {
-                if (value.name().equals(day)) {
-                    chosenDay = value;
-                }
-            }
+            Days chosenDay = Days.valueOf(day);
             Schedule schedule = map.get(chosenDay);
             for (Seance s : seances) {
                 schedule.addSeance(s);
