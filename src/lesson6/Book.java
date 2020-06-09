@@ -29,7 +29,7 @@ public class Book {
 
         for (Book book : bookList) {
             if (bookPredicate.test(book)) {
-                System.out.println(book);
+                System.out.println("Predicate: " + book);
             }
         }
     }

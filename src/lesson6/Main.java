@@ -24,21 +24,21 @@ public class Main {
             System.out.println("Stream: " + book);
         }
 
-        List<String> stringStream = books.stream().map(book6 -> book6.getTitle()).collect(Collectors.toList());
-        stringStream.forEach(System.out::println);
+        List<String> stringStream = books.stream().map(Book::getTitle).collect(Collectors.toList());
+        stringStream.forEach((string) -> System.out.println("Collected Titles: " + string));
 
-        Set<String> collect = books.stream().map(book -> book.getCountry()).collect(Collectors.toSet());
-        System.out.println(collect);
+        Set<String> collect = books.stream().map(Book::getCountry).collect(Collectors.toSet());
+        collect.forEach((string) -> System.out.println("Collected Countries: " + string));
 
         Book.showBooksWithPagesMore400(books);
 
-        books.forEach(book -> System.out.println(book));
+        books.forEach(System.out::println);
 
         Person person1 = new Person("Vadim", "Huk", 26, Arrays.asList(book3, book1, book5));
-        Person person2 = new Person("Maya", "Lubovska", 22, Arrays.asList(book2, book1, book5));
+        Person person2 = new Person("Maya", "Lubovska", 22, Arrays.asList(book4, book1, book5));
         Person person3 = new Person("Dimon", "Sun", 36, Arrays.asList(book3, book1, book2));
-        Person person4 = new Person("Marko", "Aggres", 28, Arrays.asList(book3, book5, book5));
-        Person person5 = new Person("Koko", "Shkrapi", 15, Arrays.asList(book4, book1, book5, book2));
+        Person person4 = new Person("Marko", "Aggres", 28, Arrays.asList(book3, book4, book5));
+        Person person5 = new Person("Koko", "Shkrapi", 15, Arrays.asList(book3, book1, book5, book2));
 
         List<Person> persons = Arrays.asList(person1, person2, person3, person4, person5);
 
@@ -72,6 +72,28 @@ public class Main {
                 ));
 
         System.out.println("Task2: " + task2);
+
+        // Task3
+
+        List<Book> task3 = persons.stream()
+                .filter(person -> person.getAge() > 25)
+                .map(Person::getBook).flatMap(Collection::stream)
+                .filter(book -> book.getPageCount() > 500).collect(Collectors.toList());
+
+        System.out.println("Task3: " + task3);
+
+        // Task4
+
+        Map<Person, List<Book>> task4 = persons.stream()
+                .filter(person -> person.getName().startsWith("M"))
+                .collect(Collectors.toMap(
+                        Function.identity(),
+                        person -> person.getBook().stream()
+                                .filter(book -> book.getTitle().contains("Rich"))
+                                .collect(Collectors.toList())
+                ));
+
+        task4.forEach((person, book) -> System.out.println("Task4: " + person + "\n" + "Task4: " + book));
     }
 }
 
@@ -83,5 +105,8 @@ public class Main {
 // 2. згенерувати мапу <String, Book>, де String - ім'я людини, Book - книжка з найбільшою кількістю сторінок
 // 3. згенерувати List<Book> відфільтрувавши тільких тих людей, хто старше 25 років і
 // книжки які мають більше 500 сторінок
-//
+
+// 4. згенерувати мапу <Person, Book> де Person - це ім'я людина, буква яка починається на М,
+// а Book, це книжка яка містить слово "Rich"
+
 // Чим більше таких завдань придумаєте, тим більше плюсиків вам у карму.
