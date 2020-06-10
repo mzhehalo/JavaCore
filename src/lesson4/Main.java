@@ -4,23 +4,23 @@ public class Main {
     public static void main(String[] args) {
 
         Product toothpaste = new Product("toothpaste",
-                3, TypesOfProducts.ConvenienceProducts,
+                3, TypesOfProducts.CONVENIENCE_PRODUCTS,
                 100,
                 3);
         Product television = new Product("television",
-                200, TypesOfProducts.ShoppingProducts,
+                200, TypesOfProducts.SHOPPING_PRODUCTS,
                 5000,
                 40);
         Product rolex = new Product("rolexWatch",
-                10000, TypesOfProducts.SpecialityProducts,
+                10000, TypesOfProducts.SPECIALITY_PRODUCTS,
                 80,
                 2);
         Product lifeInsurance = new Product("lifeInsurance",
-                800, TypesOfProducts.UnsoughtProducts,
+                800, TypesOfProducts.UNSOUGHT_PRODUCTS,
                 0,
                 0);
         Product furniture = new Product("furniture",
-                400, TypesOfProducts.ShoppingProducts,
+                400, TypesOfProducts.SHOPPING_PRODUCTS,
                 10000,
                 1000);
 
@@ -32,9 +32,9 @@ public class Main {
         store1.addProduct(lifeInsurance);
         store1.addProduct(furniture);
         store1.removeProduct("0");
-        store1.multipleTwoByType(TypesOfProducts.ShoppingProducts);
+        store1.multipleTwoByType(TypesOfProducts.SHOPPING_PRODUCTS);
         store1.premiumProducts();
-        store1.sumByType(TypesOfProducts.ShoppingProducts);
+        store1.sumByType(TypesOfProducts.SHOPPING_PRODUCTS);
         store1.avgByType();
     }
 }
