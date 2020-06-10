@@ -14,7 +14,7 @@ public class Cinema {
             TreeSet<Seance> seances = entry.getValue().getSeances();
             for (Seance seance : seances) {
                 // Sorting Work Perfectly
-                if (seance.getStartTime().getHours() > open.getHours()) {
+                if (seance.getStartTime().getHours() > open.getHours() && seance.getStartTime().getHours() < close.getHours()) {
                     System.out.println("Ok on open!: " + seance.getMovie().getTitle());
                 } else if (seance.getStartTime().getHours() == open.getHours()) {
                     if (seance.getStartTime().getMinutes() >= open.getMinutes()) {
@@ -26,7 +26,7 @@ public class Cinema {
                     System.out.println("Error on open!: " + seance.getMovie().getTitle());
                 }
 
-                if (seance.getEndTime().getHours() < close.getHours()) {
+                if (seance.getEndTime().getHours() < close.getHours() && seance.getEndTime().getHours() > open.getHours()) {
                     System.out.println("Ok on close!: " + seance.getMovie().getTitle());
                 } else if (seance.getEndTime().getHours() == close.getHours()) {
                     if (seance.getEndTime().getMinutes() <= close.getMinutes()) {

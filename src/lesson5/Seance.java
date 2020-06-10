@@ -10,11 +10,14 @@ public class Seance implements Comparable<Seance> {
         this.startTime = startTime;
         int hour = this.startTime.getHours() + this.movie.getDuration().getHours();
         int minute = this.startTime.getMinutes() + this.movie.getDuration().getMinutes();
-        if (hour >= 24) {
-            hour = hour - 24;
-        }
+
         if (minute >= 60) {
-            minute = minute - 60;
+            hour = hour + (minute / 60);
+            minute = minute % 60;
+        }
+
+        if (hour >= 24) {
+            hour = hour % 24;
         }
 
         this.endTime = new Time(
@@ -22,7 +25,7 @@ public class Seance implements Comparable<Seance> {
                 minute
         );
 
-//        System.out.println(this.endTime + " end time");
+        System.out.println(this.endTime + " end time");
     }
 
     public Movie getMovie() {
