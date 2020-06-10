@@ -61,8 +61,8 @@ public class Time {
     @Override
     public String toString() {
         return "Time{" +
-                "minutes=" + minutes +
-                ", hours=" + hours +
+                "hours=" + hours +
+                ",minutes=" + minutes +
                 '}';
     }
 }
