@@ -27,13 +27,13 @@ public class Main {
         schedule1.addSeance(seance3);
 
         TreeMap<Days, Schedule> scheduleForCinema1 = new TreeMap<>();
-        scheduleForCinema1.put(Days.Monday, schedule1);
+        scheduleForCinema1.put(Days.MONDAY, schedule1);
 
         Cinema cinema1 = new Cinema(scheduleForCinema1,
                 new Time(8, 20), new Time(22, 30));
 
         TreeMap<Days, Schedule> scheduleForCinema2 = new TreeMap<>();
-        scheduleForCinema2.put(Days.Tuesday, schedule2);
+        scheduleForCinema2.put(Days.TUESDAY, schedule2);
         Cinema cinema2 = new Cinema(scheduleForCinema2, new Time(7, 30),
                 new Time(20, 40));
 
@@ -49,7 +49,7 @@ public class Main {
         System.out.println("=========Removed Movie1=========");
         System.out.println(cinema1);
 
-        cinema1.removeSeance(seance2,  Days.Monday);
+        cinema1.removeSeance(seance2,  Days.MONDAY);
         System.out.println("=========Removed Seance2=========");
         System.out.println(cinema1);
     }
