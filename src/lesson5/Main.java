@@ -4,7 +4,7 @@ import java.util.TreeMap;
 
 public class Main {
     public static void main(String[] args) {
-        Movie movie1 = new Movie("The one living boy in new york", new Time(2, 30));
+        Movie movie1 = new Movie("The one living boy in new york", new Time(50, 200));
         Movie movie2 = new Movie("The hunt", new Time(1, 40));
         Movie movie3 = new Movie("The Call of the Wild", new Time(2, 0));
 
@@ -12,7 +12,7 @@ public class Main {
         Movie movie5 = new Movie("Extraction", new Time(1, 56));
         Movie movie6 = new Movie("1917", new Time(2, 25));
 
-        Seance seance1 = new Seance(movie1, new Time(20, 1));
+        Seance seance1 = new Seance(movie1, new Time(20, 0));
         Seance seance2 = new Seance(movie2, new Time(9, 0));
         Seance seance3 = new Seance(movie3, new Time(17, 0));
 
@@ -27,21 +27,21 @@ public class Main {
         schedule1.addSeance(seance3);
 
         TreeMap<Days, Schedule> scheduleForCinema1 = new TreeMap<>();
-        scheduleForCinema1.put(Days.Monday, schedule1);
+        scheduleForCinema1.put(Days.MONDAY, schedule1);
 
         Cinema cinema1 = new Cinema(scheduleForCinema1,
                 new Time(8, 20), new Time(22, 30));
 
         TreeMap<Days, Schedule> scheduleForCinema2 = new TreeMap<>();
-        scheduleForCinema2.put(Days.Tuesday, schedule2);
+        scheduleForCinema2.put(Days.TUESDAY, schedule2);
         Cinema cinema2 = new Cinema(scheduleForCinema2, new Time(7, 30),
                 new Time(20, 40));
 
-        cinema1.addSeances("Monday", seance1, seance2, seance3);
+        cinema1.addSeances("MONDAY", seance1, seance2, seance3);
         System.out.println("========Added Seances or Seance. Cinema1==========");
         System.out.println(cinema1);
 
-        cinema2.addSeances("Tuesday", seance4, seance5, seance6);
+        cinema2.addSeances("TUESDAY", seance4, seance5, seance6);
         System.out.println("========Added Seances or Seance. Cinema2==========");
         System.out.println(cinema2);
 
@@ -49,7 +49,7 @@ public class Main {
         System.out.println("=========Removed Movie1=========");
         System.out.println(cinema1);
 
-        cinema1.removeSeance(seance2,  Days.Monday);
+        cinema1.removeSeance(seance2,  Days.MONDAY);
         System.out.println("=========Removed Seance2=========");
         System.out.println(cinema1);
     }

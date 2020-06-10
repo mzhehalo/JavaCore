@@ -1,8 +1,8 @@
 package lesson4;
 
 public enum TypesOfProducts {
-    ConvenienceProducts,
-    ShoppingProducts,
-    SpecialityProducts,
-    UnsoughtProducts
+    CONVENIENCE_PRODUCTS,
+    SHOPPING_PRODUCTS,
+    SPECIALITY_PRODUCTS,
+    UNSOUGHT_PRODUCTS
 }

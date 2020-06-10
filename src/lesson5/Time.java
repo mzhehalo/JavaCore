@@ -6,13 +6,18 @@ public class Time {
     private int hours;
     private int minutes;
 
+//    public Time(int hours, int minutes) {
+//        if (minutes >= 0 && minutes <= 60 && hours >= 0 && hours <= 23) {
+//            this.hours = hours;
+//            this.minutes = minutes;
+//        } else {
+//            System.out.println("Set Minutes or Hours are less zero or more their true values!");
+//        }
+//    }
+
     public Time(int hours, int minutes) {
-        if (minutes >= 0 && minutes <= 60 && hours >= 0 && hours <= 23) {
             this.hours = hours;
             this.minutes = minutes;
-        } else {
-            System.out.println("Set Minutes or Hours are less zero or more their true values!");
-        }
     }
 
     public int getMinutes() {
